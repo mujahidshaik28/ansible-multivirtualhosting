@@ -1,0 +1,13 @@
+- name: Update app slave server
+  hosts: APP
+
+  tasks:
+  - name: Ensure the MJ directory is created
+    file:
+      path: /home/ec2-user/MJ
+      state: directory
+
+  - name: Ensure the file is downloaded
+    get_url:
+      dest: /home/ec2-user/MJ
+      url: https://file-examples.com/wp-content/storage/2017/10/file-example_PDF_1MB.pdf

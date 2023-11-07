@@ -1,0 +1,21 @@
+- name: Update Web slave server
+  hosts: web
+  become: yes
+
+  tasks:
+  - name: To ensure the deploying of mario application
+    git:
+      dest: /var/www/html/Mario
+      repo: https://github.com/GOUSERABBANI44/Mario.git
+
+
+  - name: To ensure the deploying of food application
+    git:
+      dest: /var/www/html/food
+      repo: https://github.com/GOUSERABBANI44/food.git
+
+
+  - name: To ensure the deploying of ecomm application
+    git:
+      dest: /var/www/html/ecomm
+      repo: https://github.com/GOUSERABBANI44/ecomm.git

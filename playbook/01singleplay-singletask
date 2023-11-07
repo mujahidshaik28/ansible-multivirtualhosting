@@ -1,0 +1,8 @@
+- name: Update all slave servers
+  hosts: all
+
+  tasks:
+  - name: Ensure the playbook.txt file is created
+    file:
+      path: /home/ec2-user/playbook.txt
+      state: touch

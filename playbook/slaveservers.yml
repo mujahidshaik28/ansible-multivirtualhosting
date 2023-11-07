@@ -1,0 +1,29 @@
+- name: Update App slave server
+  hosts: app
+  become: yes
+
+  tasks:
+  - name: Ensure that httpd.conf1 file is copied
+    copy:
+      src: /home/ec2-user/playbook/httpd.conf1
+      dest: /etc/httpd/conf/httpd.conf
+
+- name: Update Web slave server
+  hosts: web
+  become: yes
+
+  tasks:
+  - name: Ensure that httpd.conf2 file is copied
+    copy:
+      src: /home/ec2-user/playbook/httpd.conf2
+      dest: /etc/httpd/conf/httpd.conf
+
+- name: Update Db slave server
+  hosts: db
+  become: yes
+
+  tasks:
+  - name: Ensure that httpd.conf1 file is copied
+    copy:
+      src: /home/ec2-user/playbook/httpd.conf3
+      dest: /etc/httpd/conf/httpd.conf

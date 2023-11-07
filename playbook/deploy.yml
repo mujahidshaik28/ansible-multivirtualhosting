@@ -1,0 +1,48 @@
+- name: Update App slave servers
+  hosts: app
+  become: yes
+
+  tasks:
+  - name: Ensure that httpd.conf file is copied to all the slave servers
+    copy:
+      src: /home/ec2-user/playbook/httpd.conf1
+      dest: /etc/httpd/conf/httpd.conf
+
+
+  - name: Ensure that httpd is restarted
+    service:
+      name: httpd
+      state: restarted
+
+
+- name: Update Web slave servers
+  hosts: web
+  become: yes
+
+  tasks: 
+  - name: Ensure that httpd.conf file is copied to all the slave servers
+    copy:
+      src: /home/ec2-user/playbook/httpd.conf2
+      dest: /etc/httpd/conf/httpd.conf
+
+  
+  - name: Ensure that httpd is restarted
+    service:
+      name: httpd
+      state: restarted
+
+- name: Update Db slave servers
+  hosts: db
+  become: yes
+
+  tasks:
+  - name: Ensure that httpd.conf file is copied to all the slave servers
+    copy:
+      src: /home/ec2-user/playbook/httpd.conf3
+      dest: /etc/httpd/conf/httpd.conf
+
+
+  - name: Ensure that httpd is restarted
+    service:
+      name: httpd
+      state: restarted
